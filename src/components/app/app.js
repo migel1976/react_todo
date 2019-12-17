@@ -20,7 +20,16 @@ export default class App extends Component{
 	}
 	
 	deleteItem=(id)=>{
-		console.log('id=',id)
+//		console.log('id=',id)
+		this.setState(({todo})=>{
+			const idx=todo.findIndex((item)=>item.id===id);
+			return{
+				todo:[
+				      ...todo.slice(0,idx),
+				      ...todo.slice(idx+1)
+					]
+			}
+		})
 	}
 	
 	render(){
