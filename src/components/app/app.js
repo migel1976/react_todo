@@ -33,6 +33,14 @@ export default class App extends Component{
 		})
 	}
 	
+	addItem=(name)=>{
+		this.setState(({todo})=>{
+			const newItem=this.addNewItem(name);
+			return{todo:[...todo,newItem]}
+		})
+	};
+
+	
 	render(){
 		const {todo}=this.state;
 		return(
@@ -41,7 +49,7 @@ export default class App extends Component{
 				todoList={todo}
 				onDeleteItem={this.deleteItem}
 				 />
-			<AddFormItem />
+			<AddFormItem addItem={this.addItem} />
 		</div>
 		)
 	}
