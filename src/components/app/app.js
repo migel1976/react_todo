@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import TodoList from '../todo-list';
+import AddFormItem from '../add-form-item';
 
 export default class App extends Component{
 
@@ -40,6 +41,7 @@ export default class App extends Component{
 				todoList={todo}
 				onDeleteItem={this.deleteItem}
 				 />
+			<AddFormItem />
 		</div>
 		)
 	}
