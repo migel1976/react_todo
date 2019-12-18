@@ -8,7 +8,8 @@ export default class App extends Component{
 	addNewItem(name){
 		return{
 			name,
-			id:this.idItem++}
+			id:this.idItem++,
+			done:true}
 	};
 
 	state={
@@ -40,6 +41,11 @@ export default class App extends Component{
 		})
 	};
 
+
+	doneItem=(id)=>{
+		console.log('click on Item with id =',id)
+	};
+
 	
 	render(){
 		const {todo}=this.state;
@@ -48,6 +54,7 @@ export default class App extends Component{
 			<TodoList 
 				todoList={todo}
 				onDeleteItem={this.deleteItem}
+				onDoneItem={this.doneItem}
 				 />
 			<AddFormItem addItem={this.addItem} />
 		</div>
