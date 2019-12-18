@@ -43,7 +43,19 @@ export default class App extends Component{
 
 
 	doneItem=(id)=>{
-		console.log('click on Item with id =',id)
+	//	console.log('click on Item with id =',id)
+		this.setState(({todo})=>{
+			const idx=todo.findIndex((item)=>item.id===id);
+			const oldItem=todo[idx];
+			const value=!oldItem['done'];
+			console.log('value in App.js is equals ', value);
+			const newItem={...oldItem,done:value};
+			return{
+				todo:[...todo.slice(0,idx),
+				         newItem,
+				      ...todo.slice(idx+1)
+				]
+			}})		
 	};
 
 	
